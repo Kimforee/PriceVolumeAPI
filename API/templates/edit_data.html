@@ -1,0 +1,40 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data Entry</title>
+</head>
+<body>
+    <h1>Edit Data Entry</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="priceNative">Price Native:</label><br>
+        <input type="text" id="priceNative" name="priceNative" value="{{ priceNative }}"><br><br>
+        <label for="volume">Volume:</label><br>
+        <input type="text" id="volume" name="volume" value="{{ volume }}"><br><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data</title>
+</head>
+<body>
+    <h1>Edit Data</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="volume_h24">Volume (h24):</label>
+        <input type="text" name="volume_h24" value="{{ document.volume_h24 }}"><br>
+        <label for="price_native">Price Native:</label>
+        <input type="text" name="price_native" value="{{ document.price_native }}"><br>
+        <!-- Add other fields here -->
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

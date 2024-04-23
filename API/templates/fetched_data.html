@@ -1,0 +1,39 @@
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetched Data</title>
+    <style>
+        /* Your styles here */
+    </style>
+</head>
+<body>
+    <h1>Fetched Data</h1>
+    <div id="data-container">
+        {% for document in data %}
+
+
+            <div class="data-item">
+                {% for key, value in document.items %}
+                    {% if key != '_id' %} <!-- Exclude the _id field -->
+                        {% if key == 'pairs' %}
+                            {% for pair in value %}
+                                <p>Pair Address: {{ pair.pairAddress }}</p>
+                                <p>Price Native: {{ pair.priceNative }}</p>
+                                <p>Volume (h24): {{ pair.volume.h24 }}</p>
+                                <!-- Edit button -->
+                                <a href="{% url 'edit_data' 660049dda64ec0e896042bf6 %}"><button>Edit Data</button></a>
+
+                            {% endfor %}
+                        {% else %}
+                            <p>{{ key }}: {{ value }}</p>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
